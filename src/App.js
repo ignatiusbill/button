@@ -1,17 +1,9 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducers from './reducers';
-import SomeComponent from './components/SomeComponent';
+import { StackNavigator } from 'react-navigation';
+import { FirstScreen, SecondScreen } from './components/screens';
 
-class App extends Component {
-    render() {
-        return (
-            <Provider store={createStore(reducers)}>
-                <SomeComponent />
-            </Provider>
-        );
-    }
-}
+const App = StackNavigator({
+    First: { screen: FirstScreen },
+    Second: { screen: SecondScreen }
+});
 
 export default App;

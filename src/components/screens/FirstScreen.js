@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
 import { connect } from 'react-redux';
-import { valueChanged } from '../actions';
+import { valueChanged } from '../../actions';
 
-class SomeComponent extends Component {
+class FirstScreen extends Component {
     changeValue(value) {
         this.props.valueChanged(value);
     }
 
     render() {
         const { value } = this.props;
+        const { navigate } = this.props.navigation;
 
         return (
             <View>
@@ -18,6 +19,10 @@ class SomeComponent extends Component {
                     onPress={this.changeValue.bind(this, value)}
                 />
                 <Text>{value}</Text>
+                <Button
+                    title={'Go to SecondScreen'}
+                    onPress={() => navigate('Second')}
+                />
             </View>
         );
     }
@@ -29,4 +34,5 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, { valueChanged })(SomeComponent);
+export default connect(mapStateToProps, { valueChanged })(FirstScreen);
+export { FirstScreen };
