@@ -5,14 +5,11 @@ import { valueChanged } from '../actions';
 
 class SomeComponent extends Component {
     changeValue(value) {
-        // console.log('changeValue value: ', value);
         this.props.valueChanged(value);
     }
 
     render() {
         const { value } = this.props;
-        // var { localValue } = this.props;
-        // console.log('local value: ', localValue);
 
         return (
             <View>
