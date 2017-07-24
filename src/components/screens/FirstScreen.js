@@ -35,4 +35,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { valueChanged })(FirstScreen);
-export { FirstScreen };
